@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Reportar una vulnerabilidad
+    url: https://github.com/vela-bank/.github/blob/main/SECURITY.md
+    about: Los problemas de seguridad se reportan en privado, nunca en un issue público.

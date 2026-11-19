@@ -1,0 +1,47 @@
+name: Error
+description: Algo no funciona como debería.
+title: "fix: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por reportar. Usa solo datos sintéticos: este proyecto no admite datos reales.
+  - type: input
+    id: repositorio
+    attributes:
+      label: Repositorio
+      description: Dónde ocurre el fallo.
+      placeholder: core-banking-service
+    validations:
+      required: true
+  - type: textarea
+    id: que-paso
+    attributes:
+      label: Qué pasó
+      description: Qué esperabas y qué ocurrió en realidad.
+    validations:
+      required: true
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Pasos para reproducirlo
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Versión o commit
+      description: Etiqueta, rama o commit donde lo viste.
+    validations:
+      required: false
+  - type: textarea
+    id: contexto
+    attributes:
+      label: Contexto adicional
+      description: Logs sin secretos, capturas o configuración relevante.
+    validations:
+      required: false
