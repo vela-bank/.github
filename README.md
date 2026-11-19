@@ -15,6 +15,7 @@ Repositorio de gobierno de la organización [Vela Bank](https://github.com/vela-
 | `SUPPORT.md` | Qué soporte hay (ninguno) y dónde consultar. | Sí |
 | `CODE_OF_CONDUCT.md` | Código de conducta. | Sí |
 | `LICENSE` | Apache-2.0 de este repositorio. | No |
+| `.github/workflows/documentation.yml` | markdownlint y enlaces internos; reutilizable por otros repositorios. | No |
 
 ## Cómo funciona la herencia
 
