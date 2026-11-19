@@ -1,0 +1,48 @@
+name: Documentación
+
+# Valida este repositorio y sirve como workflow reutilizable para el resto de la
+# organización. Para usarlo desde otro repositorio, el llamador debe pasar los
+# secretos:
+#
+# jobs:
+#   docs:
+#     uses: vela-bank/.github/.github/workflows/documentation.yml@main
+#     secrets: inherit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  markdown:
+    name: Markdown
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@v25
+        with:
+          globs: |
+            **/*.md
+
+  links:
+    name: Enlaces internos
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Comprobar enlaces locales
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # --offline verifica solo rutas del repositorio: los enlaces externos
+          # dependen de repositorios que todavía no existen y no deben romper CI.
+          args: --offline --no-progress --include-fragments "**/*.md"
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
