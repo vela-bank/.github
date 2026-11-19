@@ -1,0 +1,43 @@
+name: Propuesta
+description: Una capacidad nueva o un cambio de comportamiento.
+title: "feat: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe el problema antes que la solución. Usa solo datos sintéticos: este proyecto no
+        admite datos reales.
+  - type: textarea
+    id: problema
+    attributes:
+      label: Problema
+      description: Qué falta o qué duele hoy.
+    validations:
+      required: true
+  - type: textarea
+    id: propuesta
+    attributes:
+      label: Propuesta
+      description: Qué cambiarías y cómo se verifica.
+    validations:
+      required: true
+  - type: textarea
+    id: alternativas
+    attributes:
+      label: Alternativas consideradas
+      description: Qué otras opciones evaluaste y por qué no.
+    validations:
+      required: false
+  - type: dropdown
+    id: alcance
+    attributes:
+      label: Alcance
+      options:
+        - Documentación
+        - Contratos
+        - Plataforma
+        - Servicio
+        - Aplicación web
+        - Gobernanza
+    validations:
+      required: true
