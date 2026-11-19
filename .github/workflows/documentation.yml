@@ -32,17 +32,15 @@ jobs:
             **/*.md
 
   links:
-    name: Enlaces internos
+    name: Enlaces
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-      - name: Comprobar enlaces locales
+      - name: Comprobar enlaces
         uses: lycheeverse/lychee-action@v2
         with:
-          # --offline verifica solo rutas del repositorio: los enlaces externos
-          # dependen de repositorios que todavía no existen y no deben romper CI.
-          args: --offline --no-progress --include-fragments "**/*.md"
+          args: --no-progress --include-fragments --max-retries 2 "**/*.md"
           fail: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
